@@ -1,0 +1,367 @@
+
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+   <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+​
+    <title>Dream Space Rental</title>
+​
+    <!-- google fonts -->
+    <link href="//fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+​
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="css/style-starter.css">
+    
+    
+  </head>
+  <body>
+
+<!--header-->
+<header id="site-header" class="fixed-top">
+ <div th:replace="common/header :: navbar(activeLink=${activeLink})" />
+</header>
+<!--/header-->
+<section class="w3l-about-breadcrumb">
+    <div class="breadcrumb-bg breadcrumb-bg-about pt-5">
+        <div class="container pt-lg-5 py-3">
+        </div>
+    </div>
+</section>
+<section class="w3l-breadcrumb">
+    <div class="container">
+        <ul class="breadcrumbs-custom-path">
+            <li><a th:href="@{/}">Home</a></li>
+            <li class="active"><span class="fa fa-angle-right mx-2" aria-hidden="true"></span> Property</li>
+            <li class="active"><span class="fa fa-angle-right mx-2" aria-hidden="true"></span> property single</li>
+        </ul>
+    </div>
+</section>
+<!--/blog-post-->
+
+             <!-- Connect with House Date Single -->
+
+
+<section class="w3l-blog post-content py-5">
+    <div class="container py-lg-4 py-md-3 py-2">
+     <form th:action="@{/propertySingle}" method="post" enctype="multipart/form-data">
+     <input type="hidden" name ="houseId"  th:value="${house.houseId}" />
+        <div class="inner mb-4">
+            <ul class="blog-single-author-date align-items-center">
+                <li>
+                    <div class="listing-category"><span>Rent</span></div>
+                
+            </ul>
+        </div>
+        
+        <div class="post-content">
+            <h2 class="title-single"><span th:text="${house.address}"></span> </h2>
+        </div>
+        <div class="blo-singl mb-4">
+            <ul class="blog-single-author-date align-items-center">
+                <li>
+                   
+                   <p> Master BedRooms</p> <span class="fa fa-bed"></span><span th:text="${house.masterBedRoom}"></span>
+                </li>
+          <li>    <p>BedRooms</p>  <span class="fa fa-bed"></span> <span th:text="${house.bedRoom}"></span></li>
+             <li>   <p>BathRooms</p><span class="fa fa-bath"></span> <span th:text="${house.bathRoom}"></span></li>
+           <li>    <p>Area</p> <span class="fa fa-share-square-o"></span> <span th:text="${house.area}"></span></li>
+            </ul>
+            <ul class="share-post">
+                <a href="#url" class="cost-estate m-o">Ks<span th:text="${house.price}"></span></a>
+            <div class="sidebar-title">
+                            <h4>Booking This House</h4>
+                        </div>
+                        
+                        <div class="sidebar-title">
+                        <input type="hidden" id="agentId" name="agentId" th:value="${agent.id}"/>
+                            <a th:href="@{/agentProfile?id=}+${agent.id}"><h5>Agent: <span th:text="${agent.agentFName}"></span> <span th:text="${agent.agentLName}"></span></h5></a>
+                        </div>
+
+                        <article class="post">
+                          
+                            <div class="text mb-0"><a href="#blog-single">You can booking this house with your booking form.
+                                </a>
+                        
+                            </div>
+                        </article>
+                        </br>
+                        <input hidden="hidden" name="id" th:value="${house.houseId}" />
+                        <a th:href="@{booking?id=}+${house.houseId}"} class="btn btn-primary btn-style w-100">Book</a>
+                       <!-- <button type="submit" class="btn btn-primary btn-style w-100">Booking Form</button>
+                    -->
+
+
+
+         </ul>   
+        </div>
+        <div class="row">
+            <div class="col-lg-8 w3l-news">
+                <div class="blog-single-post">
+                    <div class="single-post-image mb-5">
+                   
+                   
+                   
+                   <div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+     <li data-target="#myCarousel" data-slide-to="3"></li>
+    <li data-target="#myCarousel" data-slide-to="4"></li>
+     <li data-target="#myCarousel" data-slide-to="5"></li>
+    
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+
+   <div class="item active"  > 
+   <span data-th-each="houseImage : ${houseImgList}">
+	<img class="img-fluid" alt="" th:src="@{/images/house/}+${house.houseId}+'_'+${houseImage.imageName}"></span>
+   </div>
+ 
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+                   
+                   
+                   
+                       
+                        </div>
+                    </div>
+              
+        <div class="single-post-content">
+    
+                        <div class="single-bg-white">
+                            <h3 class="post-content-title mb-4">Property detail</h3>
+                            <ul class="details-list">
+                                <li style="padding-right: 50px;"><strong>Property id :</strong> <span th:text="${house.houseId}"> </li>
+                                <li style="padding-right: 50px;"><strong>Property size :</strong><span th:text="${house.area}"> </li>
+                                <li style="padding-right: 50px;"><strong>Master BedRooms :</strong> <span th:text="${house.masterBedRoom}"> </li>
+                                <li style="padding-right: 50px;"><strong>Bedrooms :</strong> <span th:text="${house.bedRoom}"></li>
+                                <li style="padding-right: 50px;"><strong>Bathrooms :</strong> <span th:text="${house.bathRoom}"> </li>
+                                <li style="padding-right: 50px;"><strong>Length:</strong> <span th:text="${house.length}"> </li>
+                                <li style="padding-right: 50px;"><strong>Witdh :</strong><span th:text="${house.width}"> </li>
+                                <li style="padding-right: 50px;"><strong>Floor :</strong> <span th:text="${house.floor}"> </li>
+                                <li style="padding-right: 50px;"><strong>Facilities :</strong> <span th:text="${house.facilities}"> </li>
+                                <li style="padding-right: 50px;"><strong>Area :</strong> <span th:text="${house.area}"> </li>
+                                <li style="padding-right: 50px;"><strong>Price :</strong> <span th:text="${house.price}"> </li>
+                                <li style="padding-right: 50px;"><strong>Enable :</strong> <span th:text="${house.enabled}"> </li>
+                                
+                                
+                            </ul>
+                        </div>
+                        
+                        <!-- Connect with House Date HouseList -->
+                        
+                        <!-- Connect with Agent Profile -->
+                        <!-- Connect with booking form -->
+
+           
+
+                    <!-- Popular Post Widget-->
+        
+                 
+                 
+                 
+                 
+                 
+</form>
+    </div>
+</section>
+<!-- Connect with Agent -->
+                   
+ <!-- footers 20 -->
+ 
+  <!-- move top -->
+  <button onclick="topFunction()" id="movetop" title="Go to top">
+    &#10548;
+  </button>
+  <script>
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () {
+      scrollFunction()
+    };
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("movetop").style.display = "block";
+      } else {
+        document.getElementById("movetop").style.display = "none";
+      }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+  </script>
+  <!-- /move top -->
+</section>
+
+<!-- jQuery and Bootstrap JS -->
+<script src="assets/js/jquery-3.3.1.min.js"></script>
+
+<script src="assets/js/theme-change.js"></script><!-- theme switch js (light and dark)-->
+
+<!-- stats number counter-->
+<script src="assets/js/jquery.waypoints.min.js"></script>
+<script src="assets/js/jquery.countup.js"></script>
+<script>
+  $('.counter').countUp();
+</script>
+<!-- //stats number counter -->
+
+<!-- owlcarousel -->
+<script src="assets/js/owl.carousel.js"></script>
+<!-- script for blog post slider -->
+<script>
+  $(document).ready(function () {
+    $('.owl-blog').owlCarousel({
+      loop: true,
+      margin: 30,
+      nav: false,
+      responsiveClass: true,
+      autoplay: false,
+      autoplayTimeout: 5000,
+      autoplaySpeed: 1000,
+      autoplayHoverPause: false,
+      responsive: {
+        0: {
+          items: 1,
+          nav: true
+        },
+        480: {
+          items: 1,
+          nav: true
+        },
+        700: {
+          items: 1,
+          nav: true
+        },
+        1090: {
+          items: 1,
+          nav: true
+        }
+      }
+    })
+  })
+</script>
+<!-- //script for blog post slider -->
+
+<!-- script for tesimonials carousel slider -->
+<script>
+  $(document).ready(function () {
+    $("#owl-demo1").owlCarousel({
+      loop: true,
+      nav: false,
+      margin: 50,
+      responsiveClass: true,
+      responsive: {
+        0: {
+          items: 1,
+          nav: false
+        },
+        736: {
+          items: 1,
+          nav: false
+        }
+      }
+    })
+  })
+</script>
+<!-- //script for tesimonials carousel slider -->
+
+<script src="assets/js/jquery.magnific-popup.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $('.popup-with-zoom-anim').magnificPopup({
+      type: 'inline',
+
+      fixedContentPos: false,
+      fixedBgPos: true,
+
+      overflowY: 'auto',
+
+      closeBtnInside: true,
+      preloader: false,
+
+      midClick: true,
+      removalDelay: 300,
+      mainClass: 'my-mfp-zoom-in'
+    });
+
+    $('.popup-with-move-anim').magnificPopup({
+      type: 'inline',
+
+      fixedContentPos: false,
+      fixedBgPos: true,
+
+      overflowY: 'auto',
+
+      closeBtnInside: true,
+      preloader: false,
+
+      midClick: true,
+      removalDelay: 300,
+      mainClass: 'my-mfp-slide-bottom'
+    });
+  });
+</script>
+
+<!-- disable body scroll which navbar is in active -->
+<script>
+  $(function () {
+    $('.navbar-toggler').click(function () {
+      $('body').toggleClass('noscroll');
+    })
+  });
+</script>
+<!-- disable body scroll which navbar is in active -->
+
+<!-- MENU-JS -->
+<script>
+  $(window).on("scroll", function () {
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 80) {
+      $("#site-header").addClass("nav-fixed");
+    } else {
+      $("#site-header").removeClass("nav-fixed");
+    }
+  });
+
+  //Main navigation Active Class Add Remove
+  $(".navbar-toggler").on("click", function () {
+    $("header").toggleClass("active");
+  });
+  $(document).on("ready", function () {
+    if ($(window).width() > 991) {
+      $("header").removeClass("active");
+    }
+    $(window).on("resize", function () {
+      if ($(window).width() > 991) {
+        $("header").removeClass("active");
+      }
+    });
+  });
+</script>
+<!-- //MENU-JS -->
+
+<!-- bootstrap -->
+<script src="assets/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

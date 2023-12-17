@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+ <head th:replace="common/header :: common-header" />
+  <body class="body1">
+
+<!--header-->
+<header id="site-header" class="fixed-top">
+  <div th:replace="common/header :: navbar" />
+</header>
+<!--/header-->
+<style>
+      html, .body1 {
+      min-height: 100%;
+      
+      }
+      .body1, div, .f, .in, select, textarea{ 
+      padding: 0;
+      margin: 0;
+      outline: none;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 14px;
+      color: #666;
+      line-height: 22px;
+      }
+     
+      .testbox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: inherit;
+      padding: 20px;
+      }
+      .f {
+      width: 80%;
+      padding: 20px;
+      border-radius: 6px;
+      background: #fff;
+      box-shadow: 0 0 10px 0 rgb(192, 192, 192); 
+      }
+      .banner {
+      position: relative;
+      height: 210px;
+      background-image: url("images/p1.jpg"); 
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      }
+      .banner::after {
+      content: "";
+      
+      position: absolute;
+      width: 100%;
+      height: 70%;
+      }
+      .in, textarea {
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      }
+      .in {
+      width: calc(100% - 10px);
+      padding: 5px;
+      font-size: 14px;
+      }
+      .select1 {
+      width: 100%;
+      padding: 2px 0;
+      background: transparent;
+      border: medium;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      padding-left: 5px;
+      }
+      textarea {
+      width: calc(100% - 12px);
+      padding: 5px;
+      }
+      .item:hover p, .item:hover i, .facility p, .facility label:hover, input:hover::placeholder, a {
+      color: #095484;
+      }
+      .item input:hover, .item select:hover, .item textarea:hover {
+      border: 1px solid transparent;
+      box-shadow: 0 0 6px 0 #095484;
+      color: #095484;
+      }
+      .item {
+      position: relative;
+      margin: 10px 0;
+      }
+      .item i {
+      position: absolute;
+      font-size: 20px;
+      color: #a9a9a9;
+      }
+      .item i {
+      right: 2%;
+      top: 30px;
+      z-index: 1;
+      }
+      input[type=checkbox]  {
+      display: none;
+      }
+      label {
+	  font-size: 16px;
+	  }
+      label.radio, label.check {
+      position: relative;
+      display: inline-block;
+      margin: 5px 20px 15px 0;
+      cursor: pointer;
+      }
+      .facility span {
+      margin-left: 30px;
+      }
+      .checkbox-item label {
+      margin: 5px 20px 10px 0;
+      }
+      label.radio:before, label.check:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      }
+      label.radio:before {
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      border: 2px solid #095484;
+      }
+      label.check:before {
+      top: 2px;
+      width: 16px;
+      height: 16px;
+      border-radius: 2px;
+      border: 1px solid #095484;
+      }
+      input[type=checkbox]:checked + .check:before {
+      background: #095484;
+      }
+      label.radio:after {
+      left: 5px;
+      border: 3px solid #095484;
+      }
+      label.check:after {
+      left: 4px;
+      border: 3px solid #095484;
+      }
+      label.radio:after, label.check:after {
+      content: "";
+      position: absolute;
+      top: 6px;
+      width: 8px;
+      height: 4px;
+      background: transparent;
+      border-top: none;
+      border-right: none;
+      transform: rotate(-45deg);
+      opacity: 0;
+      }
+      input[type=checkbox]:checked + label:after {
+      opacity: 1;
+      }
+       .question span {
+      margin-left: 30px;
+      }
+      .btn-block {
+      margin-top: 10px;
+      text-align: center;
+      }
+      @media (min-width: 568px) {
+	 .city-item input {
+      width: calc(50% - 20px);
+      }
+	 .house-area input {
+      width: calc(20% - 8px);
+      }
+	 }
+      
+    </style>
+
+<section class="w3l-about-breadcrumb">
+    <div class="breadcrumb-bg breadcrumb-bg-about pt-5">
+        <div class="container pt-lg-5 py-3">
+        </div>
+    </div>
+</section>
+<section class="w3l-breadcrumb">
+    <div class="container">
+        <ul class="breadcrumbs-custom-path">
+            <li><a href="index.html">Home</a></li>
+            <li class="active"><span class="fa fa-angle-right mx-2" aria-hidden="true"></span> For Rent</li>
+        </ul>
+    </div>
+</section>
+
+<section class="w3l-blog post-content py-5" >
+    <div class="container py-lg-4 py-md-3 py-2" >
+        <div class="container py-lg-5 py-md-4 py-2">
+
+<div class="testbox">
+    <form class="f" th:action="@{/forRent}" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="userId" id="userId" th:value="${user.userId}"/>
+      <div class="banner">
+        <h1 style="color: rgb(0, 0, 0); font-style: italic;">Application Form For Rent !!!</h1>
+        
+      </div>
+      <h4 style="margin: 10px 0;"><span style="color: rgb(0, 255, 0); font-size: 17px;" th:if="${successForm}">Successfully submited your form. We connect you very soon.</span></h5>
+      <h4 style="margin: 10px 0;">Give us your house information for rent. </h4>
+      <h5 style="margin: 10px 0;"><span style="color: red; font-size: 17px;">*</span> Fields Are Required.</h5>
+      <div class="item">
+        <label for="masterBedRoom">How Many Master Bedroom does your house has? (Eg: 1 or 2) <span style="color: red; font-size: 17px;">*</span></label>
+        <input class="in" type="number" min="0" name="masterBedRoom" id="masterBedRoom" th:value="${house.masterBedRoom}" placeholder="Enter in number" required/>
+      </div>
+      <div class="item">
+        <label for="bedRoom">How Many Normal Bedroom does your house has? (Eg: 1 or 2) <span style="color: red; font-size: 17px;">*</span></label>
+        <input class="in" type="number" min="0" name="bedRoom" id="bedRoom" th:value="${house.bedRoom}" placeholder="Enter in number" required/>
+      </div>
+      <div class="item">
+        <label for="bathRoom">How Many BathRoom does your house has? (Eg: 1 or 2) <span style="color: red; font-size: 17px;">*</span></label>
+        <input class="in" type="number" min="0" name="bathRoom" id="bathRoom" th:value="${house.bathRoom}" placeholder="Enter in number" required/>
+      </div>
+      <div class="item">
+      	<label for="address">House Address <span style="color: red; font-size: 17px;">*</span></label>
+        <input class="in" type="text" name="address" id="address" th:value="${house.address}" placeholder="Enter address" required/>
+      </div>
+      <div class="item">
+      	<label for="floor">Which Floor Your House Exists? (If you have)</label>
+        <input class="in" type="text" name="floor" id="floor" th:value="${house.floor}" placeholder="Enter address"/>
+      </div>
+      <div class="item">
+      	<label for="township">Township <span style="color: red; font-size: 17px;">*</span></label>
+				<select class="select1" th:value="${township.townshipName}" id="townshipName" name="townshipName" required="required">
+					<option value="choose" selected="selected" disabled="disabled">Choose Township</option>
+					<option th:each="t : ${townshipName}" th:text="${t}" th:value="${t}"></option>
+				</select>
+      </div>
+      <div class="item">
+      	<label for="type">Type <span style="color: red; font-size: 17px;">*</span></label>
+				<select class="select1" th:value="${type.typeName}" id="typeName" name="typeName" required="required">
+					<option value="choose" selected="selected" disabled="disabled">Choose Type</option>
+					<option th:each="t : ${typeName}" th:text="${t}" th:value="${t}"></option>
+				</select>
+      </div>
+      
+      <div class="city-item">
+      	<label>House Lenght, Width, Area (Please enter like this order)<span style="color: red; font-size: 17px;">*</span></label>
+      	<div class="house-area">
+      		<span class="input-group-btn">
+				<input class="in" type="number" min="0" name="length" id="length" th:value="${house.length}" placeholder="0" required/>
+				<label for="length" style="padding-left: 10px; padding-right: 10px;">Ft</label>
+				<input class="in" type="number" min="0" name="width" id="width" th:value="${house.width}" placeholder="0" required/>
+				<label for="length" style="padding-left: 10px; padding-right: 10px;">Ft</label>
+				<input class="in" type="number" min="0" name="area" id="area" th:value="${house.area}" placeholder="0" required/>
+				<label for="area" style="padding-left: 10px; padding-right: 10px;">Sqft</label>
+			</span>
+      	</div>
+      </div>
+      <div class="item">
+      	<label for="price">How many amount do you want to limit to rent your house?<span style="color: red; font-size: 17px;">*</span></label>
+        <input class="in" type="number" min="0" name="price" id="price" th:value="${house.price}" placeholder="Enter price in number" required/>
+      </div>
+      <div class="facility">
+      	<label for="facilities">What kind of facilites give?<span style="color: red; font-size: 17px;">*</span></label>
+      	<div class="checkbox-item">
+      		<input type="text" name="facilities" id="allFacilities" th:value="${house.facilities}" hidden/>
+      		<div>
+      			<input type="checkbox" value="Attic" id="check_1" name="checkList" />
+            	<label for="check_1" class="check"><span>Attic</span></label>
+      		</div>
+      		<div>
+      			<input type="checkbox" value="DinningRoom" id="check_2" name="checkList"/>
+            	<label for="check_2" class="check"><span>Dinning Room</span></label>
+      		</div>
+      		<div>
+      			<input type="checkbox" value="SwimmingPool" id="check_3" name="checkList" />
+            	<label for="check_3" class="check"><span>Swimming Pool</span></label>
+      		</div>
+      		<div>
+      			<input type="checkbox" value="GYM" id="check_4" name="checkList"/>
+            	<label for="check_4" class="check"><span>GYM</span></label>
+      		</div>
+      		<div>
+      			<input type="checkbox" value="Garage" id="check_5" name="checkList" />
+            	<label for="check_5" class="check"><span>Garage</span></label>
+      		</div>
+      		<div>
+      			<input type="checkbox" value="ParkingSpace" id="check_6" name="checkList" />
+            	<label for="check_6" class="check"><span>Parking Space</span></label>
+      		</div>
+      		<div>
+      			<input type="checkbox" value="Elevator" id="check_7" name="checkList" />
+            	<label for="check_7" class="check"><span>Elevator</span></label>
+      		</div>
+      		<div>
+      			<input type="checkbox" value="FireRefuge" id="check_8" name="checkList" />
+            	<label for="check_8" class="check"><span>Fire Refuge</span></label>
+      		</div>
+      		<div>
+      			<input type="checkbox" value="KitchenRoom" id="check_9" name="checkList" />
+            	<label for="check_9" class="check"><span>Kitchen Room</span></label>
+      		</div>
+      		<div>
+      			<input type="checkbox" value="Aircon" id="check_10" name="checkList" />
+            	<label for="check_10" class="check"><span>Aircon</span></label>
+      		</div>
+      		
+      		<div>
+      			<input type="checkbox" value="LivingRoom" id="check_11" name="checkList" />
+            	<label for="check_11" class="check"><span>Living Room</span></label>
+      		</div>
+      		<div>
+      			<input type="checkbox" value="SecurityGuard" id="check_12" name="checkList" />
+            	<label for="check_12" class="check"><span>Security Guard</span></label>
+      		</div>
+      		<div>
+      			<input type="checkbox" value="Basement" id="check_13" name="checkList" />
+            	<label for="check_13" class="check"><span>Basement</span></label>
+      		</div>
+      		<div>
+      			<input type="checkbox" value="GeneratorSupply" id="check_14" name="checkList" />
+            	<label for="check_14" class="check"><span>Generator Supply</span></label>
+      		</div>
+       	</div>
+      </div>
+      <div class="item">
+          <label for="other">Other Benefits</label>
+          <textarea rows="5" name="other" id="other" value="other" ></textarea>
+      </div>
+      
+      <div class="item">
+      	<label for="image">Choose house images (at least 1 and at most 5)<span style="color: red; font-size: 17px;">*</span></label>
+        <input class="in" type="file" name="houseImage1" id="houseImage1" th:value="${house.houseImage1}" required/>
+        <div onclick="createNewImage();">
+        	<i class="fa fa-plus-square" aria-hidden="true"></i>
+        </div>
+        <input type="hidden" id="clicks" name="clicks">
+        <div id="newInputBox"></div>
+      </div>
+      
+      <div class="facility">
+      	<div class="check-box">
+      		<div>
+      			<input type="checkbox" value="data" id="data" name="data" required />
+            	<label for="data" class="check" onclick="getFacilityList();"><span>All of the above data are correct.</span></label>
+      		</div>
+      	</div>
+      </div>
+      
+      <div class="btn-block">
+         <button type="submit" class="btn btn-style btn-primary" id="send" disabled>Send Form</button>
+         
+      </div>
+    </form>
+    </div> 
+      
+   </div>
+  </div>
+</section> 
+      
+      <!-- footers 20 -->
+ <section class="w3l-footers-20">
+  <div class="footers20">
+    <div class="container">
+      <div class="footers20-content">
+        <div class="d-grid grid-col-4 grids-content">
+          <div class="column">
+            <a href="#url" class="link"><span class="fa fa-comments"></span></a>
+            <a href="#url" class="title-small">Free consultation</a>
+            <h4>Schedule a free consultation with our specialist.</h4>
+            <a href="#buytheme" class="btn btn-style btn-primary"> Schedule now
+              <span class="fa fa-long-arrow-right ml-2"></span> </a>
+          </div>
+          <div class="column">
+            <a href="#url" class="link"><span class="fa fa-phone"></span></a>
+            <a href="#url" class="title-small">help desk</a>
+            <h4>Do you have questions or want more infomation? Call Now</h4>
+            <a href="tel:+95-9250123455">
+              <p class="contact-phone mt-2"><span class="lnr lnr-phone-handset"></span> +95-9250123455
+              </p>
+            </a>
+          </div>
+          <div class="column mt-lg-0 mt-md-5">
+            <h4 class="mb-1">Please Feel Free</h4>
+            <p>to Contact Us</p>
+            <form action="#" class="subscribe-form mt-4" method="post">
+              <div class="form-group">
+                <input type="email" name="subscribe" placeholder="Enter your email" required="">
+                <button class="btn btn-style btn-primary">Send</button>
+              </div>
+            </form>
+            <ul class="footers-17_social">
+              <h4 class="d-inline mr-4">Follow us</h4>
+              <li><a href="#url" class="twitter"><span class="fa fa-twitter"></span></a></li>
+              <li><a href="#url" class="facebook"><span class="fa fa-facebook"></span></a></li>
+              <li><a href="#url" class="linkedin"><span class="fa fa-linkedin"></span></a></li>
+              <li><a href="#url" class="instagram"><span class="fa fa-instagram"></span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="d-grid grid-col-3 grids-content1 bottom-border">
+          <div class="columns copyright-grid align-self">
+            <p class="copy-footer-29">© 2021 Dream Space. All rights reserved <a
+                href="https://w3layouts.com"></a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+ 
+  <!-- move top -->
+  <button onclick="topFunction()" id="movetop" title="Go to top">
+    &#10548;
+  </button>
+  <script>
+  
+  
+  var clicks=1;
+  function createNewImage(){
+	
+	clicks +=1;
+	if(clicks<=5){
+		document.getElementById("clicks").innerHTML=clicks;
+		var newInputBox = document.createElement("div");
+		var fileName = "houseImage"+clicks;
+		var value = "${house."+fileName+"}";
+		newInputBox.innerHTML="<input class='in' type='file' name='"+fileName+"' id='"+fileName+"' th:value='"+value+"'/>";
+	
+		document.getElementById("newInputBox").appendChild(newInputBox);
+		}
+	
+	}
+	
+	function getFacilityList(){
+		var allFacilities="";
+		var checkedItem = document.getElementsByName("checkList");
+		for(var item of checkedItem){
+			if(item.checked){
+				allFacilities= allFacilities+item.value+",";
+			}
+		}
+		
+		var other = document.getElementById("other").value;
+		
+		document.getElementById("allFacilities").value=allFacilities+other;
+		document.getElementById("send").disabled=false;
+		
+		
+	}
+  
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () {
+      scrollFunction()
+    };
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("movetop").style.display = "block";
+      } else {
+        document.getElementById("movetop").style.display = "none";
+      }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+  </script>
+  <!-- /move top -->
+</section>
+
+<!-- jQuery and Bootstrap JS -->
+<script src="js/jquery-3.3.1.min.js"></script>
+
+<script src="js/theme-change.js"></script><!-- theme switch js (light and dark)-->
+
+<!-- stats number counter-->
+<script src="js/jquery.waypoints.min.js"></script>
+<script src="js/jquery.countup.js"></script>
+<script>
+  $('.counter').countUp();
+</script>
+<!-- //stats number counter -->
+
+<!-- owlcarousel -->
+<script src="js/owl.carousel.js"></script>
+<!-- script for blog post slider -->
+<script>
+  $(document).ready(function () {
+    $('.owl-blog').owlCarousel({
+      loop: true,
+      margin: 30,
+      nav: false,
+      responsiveClass: true,
+      autoplay: false,
+      autoplayTimeout: 5000,
+      autoplaySpeed: 1000,
+      autoplayHoverPause: false,
+      responsive: {
+        0: {
+          items: 1,
+          nav: true
+        },
+        480: {
+          items: 1,
+          nav: true
+        },
+        700: {
+          items: 1,
+          nav: true
+        },
+        1090: {
+          items: 1,
+          nav: true
+        }
+      }
+    })
+  })
+</script>
+<!-- //script for blog post slider -->
+
+<!-- script for tesimonials carousel slider -->
+<script>
+  $(document).ready(function () {
+    $("#owl-demo1").owlCarousel({
+      loop: true,
+      nav: false,
+      margin: 50,
+      responsiveClass: true,
+      responsive: {
+        0: {
+          items: 1,
+          nav: false
+        },
+        736: {
+          items: 1,
+          nav: false
+        }
+      }
+    })
+  })
+</script>
+<!-- //script for tesimonials carousel slider -->
+
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $('.popup-with-zoom-anim').magnificPopup({
+      type: 'inline',
+
+      fixedContentPos: false,
+      fixedBgPos: true,
+
+      overflowY: 'auto',
+
+      closeBtnInside: true,
+      preloader: false,
+
+      midClick: true,
+      removalDelay: 300,
+      mainClass: 'my-mfp-zoom-in'
+    });
+
+    $('.popup-with-move-anim').magnificPopup({
+      type: 'inline',
+
+      fixedContentPos: false,
+      fixedBgPos: true,
+
+      overflowY: 'auto',
+
+      closeBtnInside: true,
+      preloader: false,
+
+      midClick: true,
+      removalDelay: 300,
+      mainClass: 'my-mfp-slide-bottom'
+    });
+  });
+</script>
+
+<!-- disable body scroll which navbar is in active -->
+<script>
+  $(function () {
+    $('.navbar-toggler').click(function () {
+      $('body').toggleClass('noscroll');
+    })
+  });
+</script>
+<!-- disable body scroll which navbar is in active -->
+
+<!-- MENU-JS -->
+<script>
+  $(window).on("scroll", function () {
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 80) {
+      $("#site-header").addClass("nav-fixed");
+    } else {
+      $("#site-header").removeClass("nav-fixed");
+    }
+  });
+
+  //Main navigation Active Class Add Remove
+  $(".navbar-toggler").on("click", function () {
+    $("header").toggleClass("active");
+  });
+  $(document).on("ready", function () {
+    if ($(window).width() > 991) {
+      $("header").removeClass("active");
+    }
+    $(window).on("resize", function () {
+      if ($(window).width() > 991) {
+        $("header").removeClass("active");
+      }
+    });
+  });
+</script>
+<!-- //MENU-JS -->
+
+<!-- bootstrap -->
+<script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

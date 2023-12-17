@@ -1,0 +1,583 @@
+
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+ <head th:replace="common/header :: common-header" />
+  <body>
+
+<!--header-->
+<header id="site-header" class="fixed-top">
+  <div th:replace="common/header :: navbar(activeLink=${activeLink})" />
+</header>
+<!--/header-->
+<section class="w3l-cover-3">
+		<div class="cover top-bottom">
+			<div class="container">
+			<div class="middle-section text-center">
+					<div class="section-width">
+						<p>It's great to be home!</p>
+						<h2>Find Your Dream Space Today</h2>
+					</div>
+				</div>
+				<section id="bottom" class="demo">
+						<a href="#bottom"><span></span>Scroll</a>
+					</section>
+					</div>
+			</div>
+		</div>
+	</section>
+	
+	
+	<section class="w3l-cover-3">
+		<div class="middle-section text-center">
+			<div class="heading text-center mx-auto">
+                <h3 class="title-big">Search Session</h3>
+            </div><br>
+			<div class="btn btn-default" id="township">
+			<h5 class="title-medium">Search by Township</h5>
+			<div class="row pt-md-5 pt-4">
+				<a th:href="@{/searchByTownship(townshipName='Ahlon')}" th:classappend="${activeAhlon}? 'active'" class="list-group-item">Ahlon Township</a>
+				<a th:href="@{/searchByTownship(townshipName='Bahan')}" th:classappend="${activeBahan}? 'active'" class="list-group-item">Bahan Township</a>
+				<a th:href="@{/searchByTownship(townshipName='Dagon')}" th:classappend="${activeDagon}? 'active'" class="list-group-item">Dagon Township</a>
+				<a th:href="@{/searchByTownship(townshipName='Hlaing')}" th:classappend="${activeHlaing}? 'active'" class="list-group-item">Hlaing Township</a>
+				<a th:href="@{/searchByTownship(townshipName='Kamayut')}" th:classappend="${activeKamayut}? 'active'" class="list-group-item">Kamayut Township</a>
+			</div>
+			<div class="row pt-md-5 pt-4">
+				<a th:href="@{/searchByTownship(townshipName='Kyauktada')}" th:classappend="${activeKyauktada}? 'active'" class="list-group-item">Kyauktada Township</a>
+				<a th:href="@{/searchByTownship(townshipName='Lanmadaw')}" th:classappend="${activeLanmadaw}? 'active'" class="list-group-item">Lanmadaw Township</a>
+				<a th:href="@{/searchByTownship(townshipName='Kyimyindaing')}" th:classappend="${activeKyimyindaing}? 'active'" class="list-group-item">Kyimyindaing Township</a>
+				<a th:href="@{/searchByTownship(townshipName='Mayangon')}" th:classappend="${activeMayangon}? 'active'" class="list-group-item">Mayangon Township</a>
+				<a th:href="@{/searchByTownship(townshipName='Pabedan')}" th:classappend="${activePabedan}? 'active'" class="list-group-item">Pabedan Township</a>
+			</div>
+			<div class="row pt-md-5 pt-4">
+				<a th:href="@{/searchByTownship(townshipName='Sanchaung')}" th:classappend="${activeSanchaung}? 'active'" class="list-group-item">Sanchaung Township</a>
+				<a th:href="@{/searchByTownship(townshipName='Yankin')}" th:classappend="${activeYankin}? 'active'" class="list-group-item">Yankin Township</a>
+				<a th:href="@{/searchByTownship(townshipName='Tamwe')}" th:classappend="${activeTamwe}? 'active'" class="list-group-item">Tamwe Township</a>
+				<a th:href="@{/searchByTownship(townshipName='Dawbon')}" th:classappend="${activeDawbon}? 'active'" class="list-group-item">Dawbon Township</a>
+				<a th:href="@{/searchByTownship(townshipName='Botahtaung')}" th:classappend="${activeBotataung}? 'active'" class="list-group-item">Botataung Township</a>
+			</div>
+			</div>
+			
+			<div class="btn btn-default" id="price">
+			<br><br>
+			<h5 class="title-medium">Search by Price</h5>
+			<div class="row pt-md-5 pt-4">
+				<a th:href="@{/searchByPrice(price=100000.0)}" th:classappend="${activeOneHundredThousand}? 'active'" class="list-group-item">100000 Kyats</a>
+				<a th:href="@{/searchByPrice(price=200000.0)}" th:classappend="${activeTwoHundredThousand}? 'active'" class="list-group-item">200000 Kyats</a>
+				<a th:href="@{/searchByPrice(price=300000.0)}" th:classappend="${activeThreeHundredThousand}? 'active'" class="list-group-item">300000 Kyats</a>
+				<a th:href="@{/searchByPrice(price=400000.0)}" th:classappend="${activeFourHundredThousand}? 'active'" class="list-group-item">400000 Kyats</a>
+				<a th:href="@{/searchByPrice(price=500000.0)}" th:classappend="${activeFiveHundredThousand}? 'active'" class="list-group-item">500000 Kyats</a>
+			</div>
+			<div class="row pt-md-5 pt-4">
+				<a th:href="@{/searchByPrice(price=600000.0)}" th:classappend="${activeSixHundredThousand}? 'active'" class="list-group-item">600000 Kyats</a>
+				<a th:href="@{/searchByPrice(price=700000.0)}" th:classappend="${activeSevenHundredThousand}? 'active'" class="list-group-item">700000 Kyats</a>
+				<a th:href="@{/searchByPrice(price=800000.0)}" th:classappend="${activeEightHundredThousand}? 'active'" class="list-group-item">800000 Kyats</a>
+				<a th:href="@{/searchByPrice(price=900000.0)}" th:classappend="${activeNineHundredThousand}? 'active'" class="list-group-item">900000 Kyats</a>
+				<a th:href="@{/searchByPrice(price=1000000.0)}" th:classappend="${activeTenHundredThousand}? 'active'" class="list-group-item">1000000 Kyats</a>
+			</div>
+			</div>
+			
+			<div class="btn btn-default" id="type">
+			<br><br>
+			<h5 class="title-medium">Search by Type</h5>
+			<div class="row pt-md-5 pt-4">
+				<a th:href="@{/searchByType(typeName='Condo')}" th:classappend="${activeCondo}? 'active'" class="list-group-item">Condo</a>
+				<a th:href="@{/searchByType(typeName='Flat')}" th:classappend="${activeFlat}? 'active'" class="list-group-item">Flat</a>
+				<a th:href="@{/searchByType(typeName='Landing')}" th:classappend="${activeLanding}? 'active'" class="list-group-item">Landing</a>
+				<a th:href="@{/searchByType(typeName='Villa')}" th:classappend="${activeVilla}? 'active'" class="list-group-item">Villa</a>
+				<a th:href="@{/searchByType(typeName='Apartment')}" th:classappend="${activeApartment}? 'active'" class="list-group-item">Apartment</a>
+				<a th:href="@{/searchByType(typeName='Private house')}" th:classappend="${activePrivatehouse}? 'active'" class="list-group-item">Private house</a>
+				<a th:href="@{/searchByType(typeName='Building')}" th:classappend="${activeBuilding}? 'active'" class="list-group-item">Building</a>
+				<a th:href="@{/searchByType(typeName='Town house')}" th:classappend="${activeTownhouse}? 'active'" class="list-group-item">Town house</a>
+				<a th:href="@{/searchByType(typeName='Office')}" th:classappend="${activeOffice}? 'active'" class="list-group-item">Office</a>
+			</div>
+			</div>
+		</div>
+	</section>
+				
+<section class="locations-1" id="locations">
+    <div class="locations py-5">
+        
+    </div>
+</section>
+<section class="w3l-index3" id="about">
+    <div class="midd-w3 pb-5">
+        <div class="container pb-lg-5 pb-md-4 pb-2">
+            <div class="row">
+                <div class="col-lg-5 pr-lg-0">
+                    <div class="w3l-left-img3">
+                    </div>
+                </div>
+                <div class="col-lg-7 pl-lg-0">
+                    <div class="w3l-right-info">
+                        <h6 class="title-small">Who we are</h6>
+                        <h3 class="title-big">The experts in Rangoon, Burma</h3>
+                        <p class="mt-4">We have over 5 year experience, Over 200 people work for us in Rangoon, Burma. 
+                        	 Best Service In Your Town. Learn more about our work!
+                            
+                        </p>
+                        <p class="mt-3">You are Finding your Dream Space? Come & Grab your Chance at Ours.</p>
+                        <ul class="w3l-right-book w3l-right-book-grid mt-md-5 mt-4">
+                            <li><span class="fa fa-check" aria-hidden="true"></span>Outstanding property</li>
+                            <li><span class="fa fa-check" aria-hidden="true"></span>Social responsibility</li>
+                            <li><span class="fa fa-check" aria-hidden="true"></span>Get expert advice</li>
+                            <li><span class="fa fa-check" aria-hidden="true"></span>Group structure</li>
+                            <li><span class="fa fa-check" aria-hidden="true"></span>Specialist services</li>
+                            <li><span class="fa fa-check" aria-hidden="true"></span>Vision & strategy</li>
+                        </ul>
+                        <a href="#services" class="btn btn-style btn-primary mt-4">Discover our services</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- /bottom-grids-->
+<section class="w3l-bottom-grids py-5" id="steps">
+    <div class="container py-lg-5 py-md-4 py-2">
+        <div class="grids-area-hny main-cont-wthree-fea row">
+            <div class="col-lg-4 col-md-6 grids-feature">
+                <div class="area-box no-box-shadow">
+                    <span class="fa fa-search-plus"></span>
+                    <h4><a href="#feature" class="title-head">Checking</a></h4>
+                    <p>Check The Home Information Through Our Website. The Detail Information Is Ready For You.</p>
+                    <a href="#more" class="more">Read More <span class="fa fa-long-arrow-right"></span> </a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 grids-feature mt-md-0 mt-4">
+                <div class="area-box no-box-shadow">
+                    <span class="fa fa-building-o"></span>
+                    <h4><a href="#feature" class="title-head">Booking</a></h4>
+                    <p>Book The Appointment To Come & Check House Condition For Real. Always Warmly Welcome.</p>
+                    <a href="#more" class="more">Read More <span class="fa fa-long-arrow-right"></span> </a>
+                </div>
+                 
+            </div>
+            <div class="col-lg-4 col-md-6 grids-feature mt-lg-0 mt-4">
+                <div class="area-box no-box-shadow">
+                    <span class="fa fa-home"></span>
+                    <h4><a href="#feature" class="title-head">Renting </a></h4>
+                    <p>Excited & Ready To Fulfil Your Wish. Be Satisfy With Our Five Stars Service. Come And Grab It.</p>
+                    <a href="#more" class="more">Read More <span class="fa fa-long-arrow-right"></span> </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- //bottom-grids-->
+<section class="locations-1 popular" id="locations">
+    <div class="locations py-5">
+        <div class="container py-lg-5 py-md-4">
+            <div class="heading text-center mx-auto">
+                <h6 class="title-small">Explore Township</h6>
+                <h3 class="title-big">Popular Locations In Your Town</h3>
+            </div>
+            <div class="row pt-5">
+                <div class="col-lg-3 col-md-4 col-6">
+                    <a th:href="@{/listing}">
+                        <div class="box16">
+                            <img class="img-fluid" src="images/p1.jpg" alt="">
+                            <div class="box-content">
+                                <h3 class="title mb-1">Ahlon Township</h3>
+                                
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6">
+                    <a th:href="@{/listing}">
+                        <div class="box16">
+                            <img class="img-fluid" src="images/p2.jpg" alt="">
+                            <div class="box-content">
+                                <h3 class="title mb-1">Bahan Township</h3>
+                                
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6 mt-md-0 pt-md-0 mt-sm-4 mt-3 pt-md-2">
+                    <a th:href="@{/listing}">
+                        <div class="box16">
+                            <img class="img-fluid" src="images/p3.jpg" alt="">
+                            <div class="box-content">
+                                <h3 class="title mb-1">Dagon Township</h3>
+                                
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6 mt-lg-0 pt-lg-0 mt-sm-4 mt-3 pt-md-2">
+                    <a th:href="@{/listing}">
+                        <div class="box16">
+                            <img class="img-fluid" src="images/p4.jpg" alt="">
+                            <div class="box-content">
+                                <h3 class="title mb-1">Kyauktada Township</h3>
+                                
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6 mt-sm-4 mt-3 pt-md-2">
+                    <a th:href="@{/listing}">
+                        <div class="box16">
+                            <img class="img-fluid" src="images/p5.jpg" alt="">
+                            <div class="box-content">
+                                <h3 class="title mb-1">Kyimyindaing Township</h3>
+                                
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6 mt-sm-4 mt-3 pt-md-2">
+                    <a th:href="@{/listing}">
+                        <div class="box16">
+                            <img class="img-fluid" src="images/p6.jpg" alt="">
+                            <div class="box-content">
+                                <h3 class="title mb-1">Lanmadaw Township</h3>
+                                
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6 mt-sm-4 mt-3 pt-md-2">
+                    <a th:href="@{/listing}">
+                        <div class="box16">
+                            <img class="img-fluid" src="images/p7.jpg" alt="">
+                            <div class="box-content">
+                                <h3 class="title mb-1">Latha Township</h3>
+                                
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6 mt-sm-4 mt-3 pt-md-2">
+                    <a th:href="@{/listing}">
+                        <div class="box16">
+                            <img class="img-fluid" src="images/p8.jpg" alt="">
+                            <div class="box-content">
+                                <h3 class="title mb-1">Sanchaung Township </h3>
+                                
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="w3l-index3" id="about">
+    <div class="midd-w3 py-5">
+        <div class="container pb-lg-5 pb-md-4 pb-2">
+            <div class="row">
+                <div class="col-lg-5 pr-lg-0">
+                    <div class="w3l-left-img1">
+                    </div>
+                </div>
+                <div class="col-lg-7 pl-lg-0">
+                    <div class="w3l-right-info">
+                        <h6 class="title-small">Our clients</h6>
+                        <div class="client-grid">
+                            <div class="client-title">
+                                <h3 class="title-big">We value client relationships</h3>
+                            </div>
+                            <div class="clients-info">
+                                <h3 class="title-big">Over 500</h3>
+                                <p>Satisfied customers</p>
+                            </div>
+                        </div>
+
+                        <div class="w3l-clients" id="testimonials">
+                            <div id="owl-demo1" class="owl-carousel owl-theme mt-4 pt-2 mb-4">
+                                <div class="item">
+                                    <div class="testimonial-content">
+                                        <div class="testimonial">
+                                            <div class="testi-des">
+                                                <div class="peopl align-self">
+                                                    <h4>Yuu Taa</h4>
+                                                    <p class="indentity">Client</p>
+                                                </div>
+                                            </div>
+                                            <blockquote>
+                                                <q>OMG! I really satisfy with your service that I have got a property new private house after
+                                                    getting villa. It was very comfortable. Thank you Dream Space Team.</q>
+                                            </blockquote>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="testimonial-content">
+                                        <div class="testimonial">
+                                            <div class="testi-des">
+                                                <div class="peopl align-self">
+                                                    <h4>Miyawaki Sakura</h4>
+                                                    <p class="indentity">Digital Marketer</p>
+                                                </div>
+                                            </div>
+                                            <blockquote>
+                                                <q>The Best Service I have ever seen in the town. Thank your for your kindness
+                                                and I really satisfy with your service.</q>
+                                            </blockquote>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="testimonial-content">
+                                        <div class="testimonial">
+                                            <div class="testi-des">
+                                                <div class="peopl align-self">
+                                                    <h4>Jun Hao</h4>
+                                                    <p class="indentity">Web Developer</p>
+                                                </div>
+                                            </div>
+                                            <blockquote>
+                                                <q>Suddenly I need a house to rent and I found this website. Really helpful and 100& recommend.</q>
+                                            </blockquote>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+
+                        <a href="#agents" class="btn btn-style btn-primary mt-5">Contact our agents</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+ <!-- footers 20 -->
+ <section class="w3l-footers-20">
+  <div class="footers20">
+    <div class="container">
+      <div class="footers20-content">
+        <div class="d-grid grid-col-4 grids-content">
+          <div class="column">
+            <a href="#url" class="link"><span class="fa fa-comments"></span></a>
+            <a href="#url" class="title-small">Free consultation</a>
+            <h4>Schedule a free consultation with our specialist.</h4>
+            <a href="#buytheme" class="btn btn-style btn-primary"> Schedule now
+              <span class="fa fa-long-arrow-right ml-2"></span> </a>
+          </div>
+          <div class="column">
+            <a href="#url" class="link"><span class="fa fa-phone"></span></a>
+            <a href="#url" class="title-small">help desk</a>
+            <h4>Do you have questions or want more infomation? Call Now</h4>
+            <a href="tel:+95-9250123455">
+              <p class="contact-phone mt-2"><span class="lnr lnr-phone-handset"></span> +95-9250123455
+              </p>
+            </a>
+          </div>
+          <div class="column mt-lg-0 mt-md-5">
+            <h4 class="mb-1">Please Feel Free</h4>
+            <p>to Contact Us</p>
+            <form action="#" class="subscribe-form mt-4" method="post">
+              <div class="form-group">
+                <input type="email" name="subscribe" placeholder="Enter your email" required="">
+                <button class="btn btn-style btn-primary">Send</button>
+              </div>
+            </form>
+            <ul class="footers-17_social">
+              <h4 class="d-inline mr-4">Follow us</h4>
+              <li><a href="#url" class="twitter"><span class="fa fa-twitter"></span></a></li>
+              <li><a href="#url" class="facebook"><span class="fa fa-facebook"></span></a></li>
+              <li><a href="#url" class="linkedin"><span class="fa fa-linkedin"></span></a></li>
+              <li><a href="#url" class="instagram"><span class="fa fa-instagram"></span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="d-grid grid-col-3 grids-content1 bottom-border">
+          <div class="columns copyright-grid align-self">
+            <p class="copy-footer-29">© 2021 Dream Space. All rights reserved <a
+                href="https://w3layouts.com"></a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- move top -->
+  <button onclick="topFunction()" id="movetop" title="Go to top">
+    &#10548;
+  </button>
+  <script>
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () {
+      scrollFunction()
+    };
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("movetop").style.display = "block";
+      } else {
+        document.getElementById("movetop").style.display = "none";
+      }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+  </script>
+  <!-- /move top -->
+</section>
+
+<!-- jQuery and Bootstrap JS -->
+<script src="js/jquery-3.3.1.min.js"></script>
+
+<script src="js/theme-change.js"></script><!-- theme switch js (light and dark)-->
+
+<!-- stats number counter-->
+<script src="js/jquery.waypoints.min.js"></script>
+<script src="js/jquery.countup.js"></script>
+<script>
+  $('.counter').countUp();
+</script>
+<!-- //stats number counter -->
+
+<!-- owlcarousel -->
+<script src="js/owl.carousel.js"></script>
+<!-- script for blog post slider -->
+<script>
+  $(document).ready(function () {
+    $('.owl-blog').owlCarousel({
+      loop: true,
+      margin: 30,
+      nav: false,
+      responsiveClass: true,
+      autoplay: false,
+      autoplayTimeout: 5000,
+      autoplaySpeed: 1000,
+      autoplayHoverPause: false,
+      responsive: {
+        0: {
+          items: 1,
+          nav: true
+        },
+        480: {
+          items: 1,
+          nav: true
+        },
+        700: {
+          items: 1,
+          nav: true
+        },
+        1090: {
+          items: 1,
+          nav: true
+        }
+      }
+    })
+  })
+</script>
+<!-- //script for blog post slider -->
+
+<!-- script for tesimonials carousel slider -->
+<script>
+  $(document).ready(function () {
+    $("#owl-demo1").owlCarousel({
+      loop: true,
+      nav: false,
+      margin: 50,
+      responsiveClass: true,
+      responsive: {
+        0: {
+          items: 1,
+          nav: false
+        },
+        736: {
+          items: 1,
+          nav: false
+        }
+      }
+    })
+  })
+</script>
+<!-- //script for tesimonials carousel slider -->
+
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $('.popup-with-zoom-anim').magnificPopup({
+      type: 'inline',
+
+      fixedContentPos: false,
+      fixedBgPos: true,
+
+      overflowY: 'auto',
+
+      closeBtnInside: true,
+      preloader: false,
+
+      midClick: true,
+      removalDelay: 300,
+      mainClass: 'my-mfp-zoom-in'
+    });
+
+    $('.popup-with-move-anim').magnificPopup({
+      type: 'inline',
+
+      fixedContentPos: false,
+      fixedBgPos: true,
+
+      overflowY: 'auto',
+
+      closeBtnInside: true,
+      preloader: false,
+
+      midClick: true,
+      removalDelay: 300,
+      mainClass: 'my-mfp-slide-bottom'
+    });
+  });
+</script>
+
+<!-- disable body scroll which navbar is in active -->
+<script>
+  $(function () {
+    $('.navbar-toggler').click(function () {
+      $('body').toggleClass('noscroll');
+    })
+  });
+</script>
+<!-- disable body scroll which navbar is in active -->
+
+<!-- MENU-JS -->
+<script>
+  $(window).on("scroll", function () {
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 80) {
+      $("#site-header").addClass("nav-fixed");
+    } else {
+      $("#site-header").removeClass("nav-fixed");
+    }
+  });
+
+  //Main navigation Active Class Add Remove
+  $(".navbar-toggler").on("click", function () {
+    $("header").toggleClass("active");
+  });
+  $(document).on("ready", function () {
+    if ($(window).width() > 991) {
+      $("header").removeClass("active");
+    }
+    $(window).on("resize", function () {
+      if ($(window).width() > 991) {
+        $("header").removeClass("active");
+      }
+    });
+  });
+</script>
+<!-- //MENU-JS -->
+
+<!-- bootstrap -->
+<script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
